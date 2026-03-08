@@ -1,111 +1,113 @@
 class Teacher {
-    
+
     private String name;
     private String dni;
     private Subject subject;
     private Exam exam;
     private Question question;
     private Teacher teacher;
-    
 
-    public Teacher(String name, String dni){
+    public Teacher(String name, String dni) {
         this.name = name;
         this.dni = dni;
     }
-    public Teacher(String name){
+
+    public Teacher(String name) {
         this.name = name;
     }
-    public Teacher(){
+
+    public Teacher() {
 
     }
 
-    public void show(){
+    public void show() {
 
         System.out.println("Nombre del profesor: " + this.teacher);
 
-
     }
-    
+
     public static void main(String[] args) {
-        
+
         Teacher manuel = new Teacher("Manuel Masias", "666999XY");
         Teacher loyda = new Teacher("Loyda Alas", "433452A");
 
-        Subject programacion = new Subject("Programacion II", "PRG2", 6);
+        Subject programming = new Subject("Programacion II", "PRG2", 6);
 
-        Exam parcialProgra = new Exam("Parcial", loyda, 0);
+        Exam programmingExam = new Exam("Parcial", loyda, 0);
 
-        Question pregunta1 = new Question("Vista publica clases");
-        Question pregunta2 = new Question("Vista publica objetos");
-        Question pregunta3 = new Question("Vista privada de clases");
+        Question questinon1 = new Question("Vista publica clases");
+        Question question2 = new Question("Vista publica objetos");
+        Question question3 = new Question("Vista privada de clases");
 
-        parcialProgra.addQuestion(pregunta1);
-        parcialProgra.addQuestion(pregunta2);
-        parcialProgra.addQuestion(pregunta3);
+        programmingExam.addQuestion(questinon1);
+        programmingExam.addQuestion(question2);
+        programmingExam.addQuestion(question3);
 
-        manuel.addSubject(programacion);
-        manuel.addExam(parcialProgra);
+        manuel.addSubject(programming);
+        manuel.addExam(programmingExam);
         manuel.show();
 
     }
 }
 
-class Subject{
+class Subject {
 
     private String name;
     private String id;
     private int credits;
 
-    public Subject(String name, String id, int credits){
+    public Subject(String name, String id, int credits) {
         this.name = name;
-        this.id=id;
-        this.credits= credits;
+        this.id = id;
+        this.credits = credits;
     }
-    public Subject(String name){
+
+    public Subject(String name) {
         this.name = name;
     }
-    public Subject(){
+
+    public Subject() {
 
     }
 
-    public void addSubject(Subject subject){
+    public void addSubject(Subject subject) {
         this.subject = subject;
         System.out.println("Asignatura: " + this.subject);
 
     }
 }
-class Exam{
+
+class Exam {
 
     private String type;
     private Teacher teacher;
     private Question questions;
 
-    public Exam(String type, Teacher teacher, Question questions){
+    public Exam(String type, Teacher teacher, Question questions) {
         this.type = type;
         this.teacher = teacher;
         this.questions = questions;
     }
 
-    public void addExam(){
+    public void addExam() {
         this.exam = exam;
         System.out.println("Examen: " + this.exam);
     }
 }
 
-class Question{
+class Question {
 
-    private String enunciado;
+    private String wording;
 
-    public Question(String enunciado){
-        this.enunciado = enunciado;
+    public Question(String wording) {
+        this.wording = wording;
     }
 
-    public void addQuestion(Question question){
+    public void addQuestion(Question question) {
         this.question = question;
         System.out.println("Pregunta 1: " + this.question);
         System.out.println("Pregunta 2: " + this.question);
         System.out.println("Pregunta 3: " + this.question);
-        
 
     }
 }
